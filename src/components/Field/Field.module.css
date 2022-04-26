@@ -1,0 +1,100 @@
+.field {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  position: relative;
+  user-select: none;
+}
+
+.item {
+  flex: 0 0 var(--cell-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cell-color);
+  color: var(--mark-color);
+  font-size: 80px;
+  margin: var(--cell-margin);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.item::before {
+  content: '';
+  padding-top: 100%;
+  float: left;
+}
+
+.item:focus, .item:hover {
+  box-shadow: 0 0 2px 1px var(--shadow-color);
+}
+
+.gameOver::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 16px;
+  background-color: #333;
+  opacity: .3;
+}
+
+.crossedLine::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-top: -2px;
+  background-color: #333;
+  position: absolute;
+  transition: .3;
+}
+
+.firstRow::after {
+  top: 17%;
+}
+
+.secondRow::after {
+  top: 50%;
+}
+
+.thirdRow::after {
+  top: 84%;
+}
+
+.firstCol::after {
+  top: 50%;
+  left: -33.4%;
+  transform: rotate(90deg);
+}
+
+.secondCol::after {
+  top: 50%;
+  left: 0%;
+  transform: rotate(90deg);
+}
+
+.thirdCol::after {
+  top: 50%;
+  left: 33.4%;
+  transform: rotate(90deg);
+}
+
+.leftDiagonal::after {
+  top: 50%;
+  left: -20%;
+  width: 140%;
+  transform: rotate(45deg);
+}
+
+.rigthDiagonal::after {
+  top: 50%;
+  left: -20%;
+  width: 140%;
+  transform: rotate(-45deg);
+}
